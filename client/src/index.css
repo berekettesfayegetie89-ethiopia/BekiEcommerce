@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    @apply bg-az-bg text-az-text font-sans antialiased text-sm;
+  }
+  .dark body {
+    @apply bg-dk-bg text-dk-text;
+  }
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { @apply bg-az-bg dark:bg-dk-nav; }
+  ::-webkit-scrollbar-thumb { @apply bg-az-border dark:bg-dk-border rounded-full; }
+}
+
+@layer components {
+  /* ── Cards ─────────────────────────────────────── */
+  .card {
+    @apply bg-az-card dark:bg-dk-card border border-az-border dark:border-dk-border rounded shadow-sm transition-colors duration-200;
+  }
+  .card-hover {
+    @apply card hover:shadow-md transition-shadow duration-200;
+  }
+
+  /* ── Buttons ────────────────────────────────────── */
+  .btn-primary {
+    @apply bg-az-yellow hover:bg-az-hover border border-yellow-400 dark:border-yellow-600 text-az-text dark:bg-az-orange dark:hover:bg-az-hover dark:text-white font-medium px-4 py-2 rounded cursor-pointer transition-colors text-sm active:scale-95;
+  }
+  .btn-secondary {
+    @apply bg-white dark:bg-dk-card border border-az-border dark:border-dk-border text-az-text dark:text-dk-text font-medium px-4 py-2 rounded cursor-pointer hover:bg-gray-50 dark:hover:bg-dk-border transition-colors text-sm;
+  }
+  .btn-dark {
+    @apply bg-az-nav dark:bg-dk-nav border border-az-light dark:border-dk-border text-white font-medium px-4 py-2 rounded cursor-pointer hover:bg-az-light dark:hover:bg-dk-border transition-colors text-sm;
+  }
+  .btn-orange {
+    @apply bg-az-orange hover:bg-az-hover text-white font-semibold px-4 py-2 rounded cursor-pointer transition-colors text-sm;
+  }
+  .btn-danger {
+    @apply bg-az-red hover:bg-red-800 text-white font-medium px-4 py-2 rounded cursor-pointer transition-colors text-sm;
+  }
+
+  /* ── Inputs ─────────────────────────────────────── */
+  .input {
+    @apply w-full border border-az-border dark:border-dk-border rounded px-3 py-2 text-az-text dark:text-dk-text bg-white dark:bg-dk-card placeholder-az-muted dark:placeholder-dk-muted focus:outline-none focus:ring-1 focus:ring-az-orange focus:border-az-orange transition-colors text-sm;
+  }
+  .label {
+    @apply block text-az-text dark:text-dk-text font-semibold text-sm mb-1;
+  }
+
+  /* ── Badges ─────────────────────────────────────── */
+  .badge { @apply inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold; }
+  .badge-orange { @apply badge bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-300; }
+  .badge-green  { @apply badge bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300; }
+  .badge-blue   { @apply badge bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300; }
+  .badge-red    { @apply badge bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-300; }
+  .badge-yellow { @apply badge bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-300; }
+  .badge-gray   { @apply badge bg-gray-100 text-gray-700 dark:bg-gray-700 dark:text-gray-300; }
+
+  /* ── Misc ───────────────────────────────────────── */
+  .skeleton { @apply animate-pulse bg-gray-200 dark:bg-dk-border rounded; }
+  .price { @apply text-az-red dark:text-dk-red font-medium; }
+  .stars { @apply text-az-orange dark:text-dk-orange; }
+  .link { @apply text-az-link dark:text-dk-blue hover:underline cursor-pointer; }
+  .section-title { @apply text-xl font-bold text-az-text dark:text-dk-text border-b border-az-border dark:border-dk-border pb-3 mb-4; }
+  .divider { @apply border-t border-az-border dark:border-dk-border; }
+  .page-bg { @apply bg-az-bg dark:bg-dk-bg min-h-screen; }
+  .nav-bg { @apply bg-az-dark; }
+}
